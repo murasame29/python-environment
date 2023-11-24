@@ -1,5 +1,7 @@
 # Pyhton 3.10.0の環境をDockerで構築する
 
+ArchLinuxは検証済み
+
 ## 必須環境
 
 - 十分なメモリ (推奨: 8GB ~ 16GB)
