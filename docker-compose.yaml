@@ -9,7 +9,25 @@ services:
       - "8080:8080"
     networks:
       - py-default
-  
+    depends_on:
+      - python-develop-environment-db
+      
+  # DBのコンテナを作成する
+  python-develop-environment-db:
+    build: ./postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+      - ./postgres/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - py-default
+
 networks:
   py-default:
     driver: bridge

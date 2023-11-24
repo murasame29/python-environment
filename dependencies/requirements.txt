@@ -1,2 +1,5 @@
 # ここに必要なパッケージを書いていく
+# 例えば、
 flask
+python-dotenv
+python-jwt
